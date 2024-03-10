@@ -61,15 +61,16 @@ export default {
             <ButtonContact :style="styleButton" :buttonText="'Contact Us'" />
         </div>
 
-        <img src="@/assets/hands.avif" alt="" />
+        <img src="@/assets/hands.webp" alt="" />
     </div>
 </template>
 
 <style lang="scss">
 .hero-container {
-    .navbar-hero {
-        margin-top: 24px;
-    }
+    height: 100vh;
+    background-image: url("@/assets/Background.webp");
+    background-position: center;
+
     .hero-top {
         margin-top: 115px;
         display: flex;

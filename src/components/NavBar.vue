@@ -62,6 +62,7 @@ export default {
 
 <style lang="scss">
 .navbar-container {
+    padding-top: 24px;
     display: flex;
     justify-content: center;
 

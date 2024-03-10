@@ -1,11 +1,12 @@
 <script>
 import Hero from '@/components/Hero.vue';
-
+import Footer from '@/components/Footer.vue'
 
 
 export default {
     components: {
-        Hero
+        Hero,
+        Footer
     }
 };
 </script>
@@ -13,6 +14,7 @@ export default {
 <template>
     <div>
         <Hero />
+        <Footer />
     </div>
 </template>
 
