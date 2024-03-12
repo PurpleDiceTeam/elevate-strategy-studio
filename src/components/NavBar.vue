@@ -54,7 +54,10 @@ export default {
                     <a href="">Contact</a>
                 </div>
 
-                <ButtonContact :style="styleButton" :buttonText="'Contact Us'"/>
+                <ButtonContact
+                    :style="styleButton"
+                    :buttonText="'Contact Us'"
+                />
             </div>
         </div>
     </div>
@@ -62,9 +65,9 @@ export default {
 
 <style lang="scss">
 .navbar-container {
-    padding-top: 24px;
     display: flex;
     justify-content: center;
+    padding: 24px 15%;
 
     .navbar-content {
         background: #1e1e1e;
@@ -75,21 +78,21 @@ export default {
         padding: 22px 24px 22px 32px;
         border-radius: 64px;
         box-shadow: -7px 9px 30.899999618530273px 0px #00000059;
-    }
 
-    .navbar-options {
-        display: flex;
-        gap: 40px;
+        .navbar-options {
+            display: flex;
+            gap: 40px;
 
-        a {
-            font-family: "FuturaBook";
-            font-size: 20px;
-            font-weight: 400;
-            line-height: 24px;
-            letter-spacing: 0em;
-            text-align: left;
-            color: #ffffff;
-            text-decoration: none;
+            a {
+                font-family: "FuturaBook";
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: #ffffff;
+                text-decoration: none;
+            }
         }
     }
 }

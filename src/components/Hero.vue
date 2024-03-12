@@ -79,12 +79,13 @@ export default {
         align-items: flex-end;
 
         .top-left {
-            font-family: "FuturaBook";
+            font-family: "Futura Hv BT";
             font-size: 115px;
-            font-weight: 600;
+            font-weight: 400;
             line-height: 120px;
             letter-spacing: 0em;
             text-align: left;
+            color: #1D4244;
         }
 
         .top-right {
@@ -94,12 +95,15 @@ export default {
             line-height: 76px;
             letter-spacing: 0em;
             text-align: left;
+            color: #1D4244;
         }
     }
 
     .hero-bottom {
-        margin-top: 30px;
+        margin: 30px auto;
+        margin-bottom: 0;
         display: flex;
+        flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -107,14 +111,14 @@ export default {
         position: relative;
         z-index: 2;
         font-family: "FuturaBook";
-        font-size: 46px;
+        font-size: 32px;
         font-weight: 300;
-        line-height: 55px;
-        letter-spacing: 0em;
         text-align: left;
+        color: #1D4244;
 
         span {
-            font-weight: 800;
+            font-family: "Futura Hv BT";
+            font-weight: 500;
         }
     }
 
