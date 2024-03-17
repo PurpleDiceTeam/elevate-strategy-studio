@@ -61,12 +61,10 @@ export default {};
 <style lang="scss">
 .timesup-container {
     display: flex;
-    margin-top: -80px;
-    /* background: #202020; */
+    margin-top: -16vh;
     background-image: url("@/assets/timesupbg.png");
     background-position: center;
-    z-index: 5;
-    position: relative;
+    background-repeat: no-repeat;
     flex-direction: column;
     justify-content: center;
     align-items: center;
