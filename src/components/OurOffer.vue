@@ -10,8 +10,16 @@ export default {
             styleButton: {
                 color: "#FFFFFF",
                 background: "#FF645A",
+                'box-shadow':" -8px 13px 38.599998474121094px 0px #4A4A4A40",
             },
+            selectedCard: "branding",
         };
+    },
+    methods: {
+        selectCard(card) {
+            this.selectedCard = card;
+            console.log(this.selectedCard);
+        },
     },
 };
 </script>
@@ -21,7 +29,10 @@ export default {
         <div class="custom-container">
             <div class="ouroffer-content">
                 <div class="cards-container">
-                    <article>
+                    <article
+                        @click="selectCard('branding')"
+                        :class="{ selected: selectedCard === 'branding' }"
+                    >
                         <div class="card-title">
                             <svg
                                 width="64"
@@ -101,7 +112,7 @@ export default {
                             </svg>
                             <h3>Branding Redefined:</h3>
                         </div>
-                        <div>
+                        <div class="card-text">
                             <p>
                                 Ignite your brand identity with our bespoke
                                 branding solutions. From logo design to brand
@@ -109,7 +120,10 @@ export default {
                             </p>
                         </div>
                     </article>
-                    <article>
+                    <article
+                        @click="selectCard('web-desing')"
+                        :class="{ selected: selectedCard === 'web-desing' }"
+                    >
                         <div class="card-title">
                             <svg
                                 width="64"
@@ -161,17 +175,19 @@ export default {
                             </svg>
                             <h3>Seamless Web Design:</h3>
                         </div>
-                        <div>
+                        <div class="card-text">
                             <p>
                                 Step into the future with our cutting-edge web
                                 design services. We build intuitive, responsive,
                                 and visually stunning websites that leave a
                                 lasting impression.
                             </p>
-
                         </div>
                     </article>
-                    <article>
+                    <article
+                        @click="selectCard('ux/ui')"
+                        :class="{ selected: selectedCard === 'ux/ui' }"
+                    >
                         <div class="card-title">
                             <svg
                                 width="65"
@@ -207,7 +223,7 @@ export default {
                             </svg>
                             <h3>UX/UI Mastery:</h3>
                         </div>
-                        <div>
+                        <div class="card-text">
                             <p>
                                 Elevate user experience with our UX/UI design
                                 expertise. We blend aesthetics with
@@ -216,7 +232,12 @@ export default {
                             </p>
                         </div>
                     </article>
-                    <article>
+                    <article
+                        @click="selectCard('digital-marketing')"
+                        :class="{
+                            selected: selectedCard === 'digital-marketing',
+                        }"
+                    >
                         <div class="card-title">
                             <svg
                                 width="65"
@@ -256,7 +277,7 @@ export default {
                             </svg>
                             <h3>Digital Marketing Strategies:</h3>
                         </div>
-                        <div>
+                        <div class="card-text">
                             <p>
                                 Propel your brand forward with our tailored
                                 digital marketing strategies. From social media
@@ -303,25 +324,70 @@ export default {
     justify-content: center;
 
     .ouroffer-content {
+        padding: 120px 0;
         display: flex;
+        gap: 135px;
 
         .cards-container {
-            background-color: red;
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));
+            gap: 24px;
             width: 100%;
             max-width: 50%;
 
             article {
+                cursor: pointer;
                 display: flex;
                 flex-direction: column;
                 width: 100%;
-                max-width: 312px;
+                border: solid 1px transparent;
+                background: linear-gradient(
+                    270deg,
+                    #252525 0%,
+                    rgba(37, 37, 37, 0) 100%
+                );
 
                 .card-title {
                     display: flex;
                     align-items: center;
-                    border-bottom: solid 1px #FFFFFF;
+                    gap: 16px;
+                    padding: 12px;
+                    min-height: 115px;
+                    border-bottom: solid 1px #ffffff;
+
+                    h3 {
+                        font-family: Futura Hv BT;
+                        font-size: 24px;
+                        font-weight: 400;
+                        line-height: 28.77px;
+                        text-align: left;
+                        color: #f7f7f7;
+                    }
+                }
+
+                .card-text {
+                    display: flex;
+                    justify-content: center;
+                    padding: 24px;
+                    p {
+                        font-family: "Montserrat";
+                        font-size: 20px;
+                        font-weight: 400;
+                        line-height: 32px;
+                        text-align: left;
+                        color: #f7f7f7;
+                    }
+                }
+            }
+
+            .selected {
+                border: solid 1px #21bec5;
+                box-shadow: -14px 9px 41.70000076293945px 0px #000000a6;
+
+                .card-title {
+                    h3 {
+                        color: #21bec5;
+                    }
                 }
             }
         }
