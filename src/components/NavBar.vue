@@ -67,7 +67,7 @@ export default {
 .navbar-container {
     display: flex;
     justify-content: center;
-    padding: 24px 15%;
+    padding: 0 5%;
 
     .navbar-content {
         background: #1e1e1e;
@@ -75,6 +75,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-top: 24px;
         padding: 22px 24px 22px 32px;
         border-radius: 64px;
         box-shadow: -7px 9px 30.899999618530273px 0px #00000059;

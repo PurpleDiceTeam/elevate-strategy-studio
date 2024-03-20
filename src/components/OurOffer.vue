@@ -317,14 +317,15 @@ export default {
 
 <style lang="scss">
 .ouroffer-container {
-    background-image: url("@/assets/ouroffer.png");
+/*     background-image: url("@/assets/ouroffer.png"); */
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 100% 100%;
     display: flex;
     justify-content: center;
 
     .ouroffer-content {
-        padding: 120px 0;
+        padding: 120px 5%;
         display: flex;
         gap: 135px;
 

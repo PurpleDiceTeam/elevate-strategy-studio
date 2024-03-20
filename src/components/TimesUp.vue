@@ -60,11 +60,12 @@ export default {};
 
 <style lang="scss">
 .timesup-container {
+    margin-top: -124px;
     display: flex;
-    margin-top: -16vh;
-    background-image: url("@/assets/timesupbg.png");
+/*     background-image: url("@/assets/timesupbg.webp"); */
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 100% 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -76,9 +77,8 @@ export default {};
     }
 
     .timesup-content {
-        margin-top: 60px;
         border-radius: 0px 0px 150px 150px;
-        padding: 120px 15%;
+        padding: 120px 5%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -125,4 +125,3 @@ export default {};
     }
 }
 </style>
-<!-- 100/50/50/61 -->

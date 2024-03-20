@@ -57,19 +57,24 @@ export default {
                     stroke-linecap="round"
                 />
             </svg>
+        </div>
 
+        <div class="hero-button">
             <ButtonContact :style="styleButton" :buttonText="'Contact Us'" />
         </div>
 
-        <img src="@/assets/hands.webp" alt="" />
+        <!-- <img src="@/assets/hands.webp" alt="" /> -->
     </div>
 </template>
 
 <style lang="scss">
 .hero-container {
     height: 100vh;
+    background-color: rebeccapurple;
     background-image: url("@/assets/Background.webp");
     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     .hero-top {
         margin-top: 115px;
@@ -85,7 +90,7 @@ export default {
             line-height: 120px;
             letter-spacing: 0em;
             text-align: left;
-            color: #1D4244;
+            color: #1d4244;
         }
 
         .top-right {
@@ -95,7 +100,7 @@ export default {
             line-height: 76px;
             letter-spacing: 0em;
             text-align: left;
-            color: #1D4244;
+            color: #1d4244;
         }
     }
 
@@ -107,14 +112,14 @@ export default {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        gap: 40px;
+        gap: 20px;
         position: relative;
         z-index: 2;
         font-family: "FuturaBook";
         font-size: 32px;
         font-weight: 300;
         text-align: left;
-        color: #1D4244;
+        color: #1d4244;
 
         span {
             font-family: "Futura Hv BT";
@@ -122,10 +127,17 @@ export default {
         }
     }
 
-    img {
+    .hero-button {
+        padding-top: 20px;
+        background-image: url("@/assets/hands.webp");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height: 45vh;
         width: 100%;
-        max-height: 500px;
-        margin-top: -110px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
     }
 }
 </style>
