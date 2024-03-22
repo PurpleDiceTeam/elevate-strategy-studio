@@ -10,7 +10,7 @@ export default {
             styleButton: {
                 color: "#FFFFFF",
                 background: "#FF645A",
-                'box-shadow':" -8px 13px 38.599998474121094px 0px #4A4A4A40",
+                "box-shadow": " -8px 13px 38.599998474121094px 0px #4A4A4A40",
             },
             selectedCard: "branding",
         };
@@ -31,7 +31,6 @@ export default {
                 <div class="cards-container">
                     <article
                         @click="selectCard('branding')"
-                        :class="{ selected: selectedCard === 'branding' }"
                     >
                         <div class="card-title">
                             <svg
@@ -122,7 +121,6 @@ export default {
                     </article>
                     <article
                         @click="selectCard('web-desing')"
-                        :class="{ selected: selectedCard === 'web-desing' }"
                     >
                         <div class="card-title">
                             <svg
@@ -186,7 +184,6 @@ export default {
                     </article>
                     <article
                         @click="selectCard('ux/ui')"
-                        :class="{ selected: selectedCard === 'ux/ui' }"
                     >
                         <div class="card-title">
                             <svg
@@ -234,9 +231,6 @@ export default {
                     </article>
                     <article
                         @click="selectCard('digital-marketing')"
-                        :class="{
-                            selected: selectedCard === 'digital-marketing',
-                        }"
                     >
                         <div class="card-title">
                             <svg
@@ -317,7 +311,7 @@ export default {
 
 <style lang="scss">
 .ouroffer-container {
-/*     background-image: url("@/assets/ouroffer.png"); */
+    /*     background-image: url("@/assets/ouroffer.png"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -379,15 +373,15 @@ export default {
                         color: #f7f7f7;
                     }
                 }
-            }
 
-            .selected {
-                border: solid 1px #21bec5;
-                box-shadow: -14px 9px 41.70000076293945px 0px #000000a6;
+                &:hover {
+                    border: solid 1px #21bec5;
+                    box-shadow: -14px 9px 41.70000076293945px 0px #000000a6;
 
-                .card-title {
-                    h3 {
-                        color: #21bec5;
+                    .card-title {
+                        h3 {
+                            color: #21bec5;
+                        }
                     }
                 }
             }

@@ -1,6 +1,7 @@
 <script>
 import NavBar from "./NavBar.vue";
 import ButtonContact from "./ButtonContact.vue";
+import axios from "axios";
 
 export default {
     components: {
@@ -13,7 +14,25 @@ export default {
                 color: "#1d4244",
                 background: "#21bec5",
             },
+            title_left: "",
+            title_right: "",
+            subtitle_left: "",
+            subtitle_dark: "",
+            subtitle_right: "",
         };
+    },
+    mounted() {
+        axios
+            .get(
+                "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/pages/7/?acf_format=standard"
+            )
+            .then((response) => {
+                this.title_left = response.data.acf.title_left;
+                this.title_right = response.data.acf.title_right;
+                this.subtitle_left = response.data.acf.subtitle_left;
+                this.subtitle_dark = response.data.acf.subtitle_dark;
+                this.subtitle_right = response.data.acf.subtitle_right;
+            });
     },
 };
 </script>
@@ -22,7 +41,7 @@ export default {
     <div class="hero-container">
         <NavBar class="navbar-hero" />
         <div class="hero-top">
-            <h1 class="top-left">Elevate</h1>
+            <h1 class="top-left">{{ this.title_left }}</h1>
             <svg
                 width="7"
                 height="98"
@@ -37,11 +56,14 @@ export default {
                     stroke-linecap="round"
                 />
             </svg>
-            <h1 class="top-right">YOUR VISION</h1>
+            <h1 class="top-right">{{ this.title_right }}</h1>
         </div>
 
         <div class="hero-bottom">
-            <h2>Where <span>Strategy and Design</span> Converge</h2>
+            <h2>
+                {{ this.subtitle_left }} <span>{{ this.subtitle_dark }} </span>
+                {{ this.subtitle_right }}
+            </h2>
 
             <svg
                 width="89"
@@ -62,15 +84,12 @@ export default {
         <div class="hero-button">
             <ButtonContact :style="styleButton" :buttonText="'Contact Us'" />
         </div>
-
-        <!-- <img src="@/assets/hands.webp" alt="" /> -->
     </div>
 </template>
 
 <style lang="scss">
 .hero-container {
     height: 100vh;
-    background-color: rebeccapurple;
     background-image: url("@/assets/Background.webp");
     background-position: center;
     background-repeat: no-repeat;
