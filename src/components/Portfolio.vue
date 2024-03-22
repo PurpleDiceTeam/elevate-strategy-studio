@@ -36,15 +36,17 @@ export default {
         <div class="custom-container">
             <div class="portfolio-content">
                 <h1>Explore our solutions</h1>
-                <div>
-                    <h2>Portfolio</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Fugit neque, veritatis qui atque perferendis expedita
-                        numquam consectetur voluptatem. Inventore placeat
-                        voluptatibus quae consequuntur quis aspernatur odit est
-                        asperiores temporibus eius!
-                    </p>
+                <div class="portfolio-header">
+                    <div class="header-content">
+                        <h2>Portfolio</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Fugit neque, veritatis qui atque perferendis
+                            expedita numquam consectetur voluptatem. Inventore
+                            placeat voluptatibus quae consequuntur quis
+                            aspernatur odit est asperiores temporibus eius!
+                        </p>
+                    </div>
                 </div>
 
                 <swiper
@@ -272,26 +274,36 @@ export default {
 .portfolio-container {
     display: flex;
     justify-content: center;
-    h2 {
-        font-family: "FuturaBold";
-        font-size: 48px;
-        font-weight: 500;
-        line-height: 57.6px;
-        text-align: right;
-        color: #ff645a;
-    }
-
-    p {
-        font-family: "Montserrat";
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 32px;
-        letter-spacing: 0em;
-        text-align: left;
-    }
 
     .portfolio-content {
         padding: 0 5%;
+
+        .portfolio-header {
+            display: flex;
+            justify-content: center;
+
+            .header-content {
+                max-width: 960px;
+                h2 {
+                    font-family: "FuturaBold";
+                    font-size: 48px;
+                    font-weight: 500;
+                    line-height: 57.6px;
+                    text-align: center;
+                    color: #ff645a;
+                }
+
+                p {
+                    padding-top: 24px;
+                    font-family: "Montserrat";
+                    font-size: 20px;
+                    font-weight: 400;
+                    line-height: 32px;
+                    letter-spacing: 0em;
+                    text-align: center;
+                }
+            }
+        }
 
         .carousel-content {
             padding: 50px 0;
@@ -310,8 +322,8 @@ export default {
                 max-width: 50%;
                 .text-category {
                     padding-bottom: 16px;
-                    border-bottom: solid 1px #8C8C8C;
-                    
+                    border-bottom: solid 1px #8c8c8c;
+
                     h1 {
                         font-family: "FuturaBook";
                         font-size: 20px;
