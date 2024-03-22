@@ -29,9 +29,7 @@ export default {
         <div class="custom-container">
             <div class="ouroffer-content">
                 <div class="cards-container">
-                    <article
-                        @click="selectCard('branding')"
-                    >
+                    <article @mouseover="selectCard('branding')" :class="{ 'selected': selectedCard === 'branding' }">
                         <div class="card-title">
                             <svg
                                 width="64"
@@ -119,9 +117,7 @@ export default {
                             </p>
                         </div>
                     </article>
-                    <article
-                        @click="selectCard('web-desing')"
-                    >
+                    <article @mouseover="selectCard('web-desing')" :class="{ 'selected': selectedCard === 'web-desing' }">
                         <div class="card-title">
                             <svg
                                 width="64"
@@ -182,9 +178,7 @@ export default {
                             </p>
                         </div>
                     </article>
-                    <article
-                        @click="selectCard('ux/ui')"
-                    >
+                    <article @mouseover="selectCard('ux/ui')" :class="{ 'selected': selectedCard === 'ux/ui' }">
                         <div class="card-title">
                             <svg
                                 width="65"
@@ -229,9 +223,7 @@ export default {
                             </p>
                         </div>
                     </article>
-                    <article
-                        @click="selectCard('digital-marketing')"
-                    >
+                    <article @mouseover="selectCard('digital-marketing')" :class="{ 'selected': selectedCard === 'digital-marketing' }">
                         <div class="card-title">
                             <svg
                                 width="65"
@@ -374,7 +366,7 @@ export default {
                     }
                 }
 
-                &:hover {
+/*                 &:hover {
                     border: solid 1px #21bec5;
                     box-shadow: -14px 9px 41.70000076293945px 0px #000000a6;
 
@@ -382,6 +374,17 @@ export default {
                         h3 {
                             color: #21bec5;
                         }
+                    }
+                } */
+            }
+
+            .selected {
+                border: solid 1px #21bec5;
+                box-shadow: -14px 9px 41.70000076293945px 0px #000000a6;
+
+                .card-title {
+                    h3 {
+                        color: #21bec5;
                     }
                 }
             }
