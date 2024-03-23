@@ -4,6 +4,7 @@ import Footer from "@/components/Footer.vue";
 import TimesUp from "@/components/TimesUp.vue";
 import OurOffer from "@/components/OurOffer.vue";
 import SetUsApart from "@/components/SetUsApart.vue";
+import ContactUs from "@/components/ContactUs.vue"
 import Portfolio from "@/components/Portfolio.vue";
 
 export default {
@@ -13,6 +14,7 @@ export default {
         OurOffer,
         SetUsApart,
         Portfolio,
+        ContactUs,
         Footer,
     },
 };
@@ -27,6 +29,7 @@ export default {
             <SetUsApart />
         </div>
         <Portfolio />
+        <ContactUs />
         <Footer />
     </div>
 </template>

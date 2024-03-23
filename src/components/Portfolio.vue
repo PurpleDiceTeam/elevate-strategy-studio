@@ -2,6 +2,7 @@
 import ButtonContact from "./ButtonContact.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination } from "swiper/modules";
+import axios from "axios";
 
 // Import Swiper styles
 import "swiper/css";
@@ -16,12 +17,35 @@ export default {
     },
     data() {
         return {
+            posts: [],
             styleButton: {
                 color: "#FFFFFF",
                 background: "#FF645A",
                 "box-shadow": " -8px 13px 38.599998474121094px 0px #4A4A4A40",
             },
+            isLoading: true,
         };
+    },
+    methods: {
+        async getPosts() {
+            this.isLoading = false;
+            try {
+                const response = await axios.get(
+                    "https://elevatess.000webhostapp.com/wp-json/wp/v2/project?acf_format=standard"
+                    /* "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/project?acf_format=standard" */
+                    /* "http://localhost/lienwordpress/index.php/wp-json/wp/v2/posts?_embed&acf_format=standard" */
+                );
+                this.posts = response.data;
+                console.log(this.posts);
+            } catch (error) {
+                console.error("Error fetching posts:", error);
+            } finally {
+                this.isLoading = false;
+            }
+        },
+    },
+    mounted() {
+        this.getPosts();
     },
     setup() {
         return {
@@ -50,216 +74,38 @@ export default {
                 </div>
 
                 <swiper
+                    v-if="!this.isLoading"
                     :pagination="{
                         dynamicBullets: true,
                     }"
                     :modules="modules"
                     class="mySwiper"
                 >
-                    <swiper-slide>
+                    <swiper-slide
+                        v-for="project in this.posts"
+                        :key="project.id"
+                    >
                         <div class="carousel-content">
-                            <div class="carousel-images">
-                                <img
-                                    src="@/assets/project-demo/project1.png"
-                                    alt=""
-                                />
-                                <img
-                                    src="@/assets/project-demo/project1.png"
-                                    alt=""
-                                />
-                                <img
-                                    src="@/assets/project-demo/project1.png"
-                                    alt=""
-                                />
-                                <img
-                                    src="@/assets/project-demo/project1.png"
-                                    alt=""
-                                />
+                            <div class="carousel-images" >
+                                <img v-for="image in project.acf.images" :src="image" alt="" />
                             </div>
                             <div class="carousel-text">
                                 <div class="text-category">
                                     <h1>BRANDING</h1>
                                 </div>
-                                <h2>Title</h2>
+                                <h2>{{ project.title.rendered }}</h2>
                                 <h3>Subtitle</h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Earum tenetur rerum
-                                    voluptatem omnis laudantium, culpa voluptate
-                                    vel maiores aliquam impedit, natus nulla
-                                    voluptates nisi officia ab corporis? Illum,
-                                    alias placeat!
+                                    {{ project.acf.description }}
                                 </p>
-                                <h3>Subtitle</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Earum tenetur rerum
-                                    voluptatem omnis laudantium, culpa voluptate
-                                    vel maiores aliquam impedit, natus nulla
-                                    voluptates nisi officia ab corporis? Illum,
-                                    alias placeat!
-                                </p>
+
                                 <div class="portfolio-button">
-                                    <ButtonContact
-                                        :style="styleButton"
-                                        :buttonText="'Connect With Us'"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="carousel-content">
-                            <div class="carousel-images">
-                                <img
-                                    src="@/assets/project-demo/project2.png"
-                                    alt=""
-                                />
-                                <img
-                                    src="@/assets/project-demo/project2.png"
-                                    alt=""
-                                />
-                                <img
-                                    src="@/assets/project-demo/project2.png"
-                                    alt=""
-                                />
-                                <img
-                                    src="@/assets/project-demo/project2.png"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="carousel-text">
-                                <div class="text-category">
-                                    <h1>BRANDING</h1>
-                                </div>
-                                <h2>Title</h2>
-                                <h3>Subtitle</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Earum tenetur rerum
-                                    voluptatem omnis laudantium, culpa voluptate
-                                    vel maiores aliquam impedit, natus nulla
-                                    voluptates nisi officia ab corporis? Illum,
-                                    alias placeat!
-                                </p>
-                                <h3>Subtitle</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Earum tenetur rerum
-                                    voluptatem omnis laudantium, culpa voluptate
-                                    vel maiores aliquam impedit, natus nulla
-                                    voluptates nisi officia ab corporis? Illum,
-                                    alias placeat!
-                                </p>
-                                <div class="portfolio-button">
-                                    <ButtonContact
-                                        :style="styleButton"
-                                        :buttonText="'Connect With Us'"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="carousel-content">
-                            <div class="carousel-images">
-                                <img
-                                    src="@/assets/project-demo/project3.png"
-                                    alt=""
-                                />
-                                <img
-                                    src="@/assets/project-demo/project3.png"
-                                    alt=""
-                                />
-                                <img
-                                    src="@/assets/project-demo/project3.png"
-                                    alt=""
-                                />
-                                <img
-                                    src="@/assets/project-demo/project3.png"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="carousel-text">
-                                <div class="text-category">
-                                    <h1>BRANDING</h1>
-                                </div>
-                                <h2>Title</h2>
-                                <h3>Subtitle</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Earum tenetur rerum
-                                    voluptatem omnis laudantium, culpa voluptate
-                                    vel maiores aliquam impedit, natus nulla
-                                    voluptates nisi officia ab corporis? Illum,
-                                    alias placeat!
-                                </p>
-                                <h3>Subtitle</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Earum tenetur rerum
-                                    voluptatem omnis laudantium, culpa voluptate
-                                    vel maiores aliquam impedit, natus nulla
-                                    voluptates nisi officia ab corporis? Illum,
-                                    alias placeat!
-                                </p>
-                                <div class="portfolio-button">
-                                    <ButtonContact
-                                        :style="styleButton"
-                                        :buttonText="'Connect With Us'"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="carousel-content">
-                            <div class="carousel-images">
-                                <img
-                                    src="@/assets/project-demo/project4.png"
-                                    alt=""
-                                />
-                                <img
-                                    src="@/assets/project-demo/project4.png"
-                                    alt=""
-                                />
-                                <img
-                                    src="@/assets/project-demo/project4.png"
-                                    alt=""
-                                />
-                                <img
-                                    src="@/assets/project-demo/project4.png"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="carousel-text">
-                                <div class="text-category">
-                                    <h1>BRANDING</h1>
-                                </div>
-                                <h2>Title</h2>
-                                <h3>Subtitle</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Earum tenetur rerum
-                                    voluptatem omnis laudantium, culpa voluptate
-                                    vel maiores aliquam impedit, natus nulla
-                                    voluptates nisi officia ab corporis? Illum,
-                                    alias placeat!
-                                </p>
-                                <h3>Subtitle</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Earum tenetur rerum
-                                    voluptatem omnis laudantium, culpa voluptate
-                                    vel maiores aliquam impedit, natus nulla
-                                    voluptates nisi officia ab corporis? Illum,
-                                    alias placeat!
-                                </p>
-                                <div class="portfolio-button">
-                                    <ButtonContact
-                                        :style="styleButton"
-                                        :buttonText="'Connect With Us'"
-                                    />
+                                    <a href="#contact">
+                                        <ButtonContact
+                                            :style="styleButton"
+                                            :buttonText="'Connect With Us'"
+                                        />
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -315,6 +161,11 @@ export default {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 24px;
+
+                img {
+                    width: 312px;
+                    height: auto;
+                }
             }
 
             .carousel-text {

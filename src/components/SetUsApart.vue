@@ -189,10 +189,12 @@ export default {
                     </div>
 
                     <div>
-                        <ButtonContact
-                            :style="styleButton"
-                            :buttonText="'Connect With Us'"
-                        />
+                        <a href="#contact">
+                            <ButtonContact
+                                :style="styleButton"
+                                :buttonText="'Connect With Us'"
+                            />
+                        </a>
                     </div>
                 </div>
             </div>

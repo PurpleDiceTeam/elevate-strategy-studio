@@ -29,7 +29,10 @@ export default {
         <div class="custom-container">
             <div class="ouroffer-content">
                 <div class="cards-container">
-                    <article @mouseover="selectCard('branding')" :class="{ 'selected': selectedCard === 'branding' }">
+                    <article
+                        @mouseover="selectCard('branding')"
+                        :class="{ selected: selectedCard === 'branding' }"
+                    >
                         <div class="card-title">
                             <svg
                                 width="64"
@@ -117,7 +120,10 @@ export default {
                             </p>
                         </div>
                     </article>
-                    <article @mouseover="selectCard('web-desing')" :class="{ 'selected': selectedCard === 'web-desing' }">
+                    <article
+                        @mouseover="selectCard('web-desing')"
+                        :class="{ selected: selectedCard === 'web-desing' }"
+                    >
                         <div class="card-title">
                             <svg
                                 width="64"
@@ -178,7 +184,10 @@ export default {
                             </p>
                         </div>
                     </article>
-                    <article @mouseover="selectCard('ux/ui')" :class="{ 'selected': selectedCard === 'ux/ui' }">
+                    <article
+                        @mouseover="selectCard('ux/ui')"
+                        :class="{ selected: selectedCard === 'ux/ui' }"
+                    >
                         <div class="card-title">
                             <svg
                                 width="65"
@@ -223,7 +232,12 @@ export default {
                             </p>
                         </div>
                     </article>
-                    <article @mouseover="selectCard('digital-marketing')" :class="{ 'selected': selectedCard === 'digital-marketing' }">
+                    <article
+                        @mouseover="selectCard('digital-marketing')"
+                        :class="{
+                            selected: selectedCard === 'digital-marketing',
+                        }"
+                    >
                         <div class="card-title">
                             <svg
                                 width="65"
@@ -291,10 +305,12 @@ export default {
                         non proident, sunt in culpa qui officia deserunt mollit
                         anim id est laborum
                     </p>
-                    <ButtonContact
-                        :style="styleButton"
-                        :buttonText="'Connect With Us'"
-                    />
+                    <a href="#contact">
+                        <ButtonContact
+                            :style="styleButton"
+                            :buttonText="'Connect With Us'"
+                        />
+                    </a>
                 </div>
             </div>
         </div>
@@ -366,7 +382,7 @@ export default {
                     }
                 }
 
-/*                 &:hover {
+                /*                 &:hover {
                     border: solid 1px #21bec5;
                     box-shadow: -14px 9px 41.70000076293945px 0px #000000a6;
 

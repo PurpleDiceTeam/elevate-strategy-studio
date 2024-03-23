@@ -14,6 +14,7 @@ export default {
                 color: "#1d4244",
                 background: "#21bec5",
             },
+            isLoading: true,
             title_left: "",
             title_right: "",
             subtitle_left: "",
@@ -21,18 +22,29 @@ export default {
             subtitle_right: "",
         };
     },
-    mounted() {
-        axios
-            .get(
-                "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/pages/7/?acf_format=standard"
-            )
-            .then((response) => {
+    methods: {
+        async getPosts() {
+            this.isLoading = false;
+            try {
+                const response = await axios.get(
+                    "https://elevatess.000webhostapp.com/wp-json/wp/v2/pages/27/?acf_format=standard"
+                /* "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/pages/7/?acf_format=standard" */
+                );
                 this.title_left = response.data.acf.title_left;
                 this.title_right = response.data.acf.title_right;
                 this.subtitle_left = response.data.acf.subtitle_left;
                 this.subtitle_dark = response.data.acf.subtitle_dark;
                 this.subtitle_right = response.data.acf.subtitle_right;
-            });
+                console.log(this.posts);
+            } catch (error) {
+                console.error("Error fetching posts:", error);
+            } finally {
+                this.isLoading = false;
+            }
+        },
+    },
+    mounted() {
+        this.getPosts();
     },
 };
 </script>
@@ -40,7 +52,7 @@ export default {
 <template>
     <div class="hero-container">
         <NavBar class="navbar-hero" />
-        <div class="hero-top">
+        <div class="hero-top" v-if="!this.isLoading">
             <h1 class="top-left">{{ this.title_left }}</h1>
             <svg
                 width="7"
@@ -59,7 +71,7 @@ export default {
             <h1 class="top-right">{{ this.title_right }}</h1>
         </div>
 
-        <div class="hero-bottom">
+        <div class="hero-bottom" v-if="!this.isLoading">
             <h2>
                 {{ this.subtitle_left }} <span>{{ this.subtitle_dark }} </span>
                 {{ this.subtitle_right }}
@@ -81,8 +93,13 @@ export default {
             </svg>
         </div>
 
-        <div class="hero-button">
-            <ButtonContact :style="styleButton" :buttonText="'Contact Us'" />
+        <div class="hero-button" v-if="!this.isLoading">
+            <a href="#contact">
+                <ButtonContact
+                    :style="styleButton"
+                    :buttonText="'Contact Us'"
+                />
+            </a>
         </div>
     </div>
 </template>
