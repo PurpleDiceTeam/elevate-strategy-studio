@@ -288,8 +288,11 @@ export default {
                     </article>
                 </div>
                 <div class="text-container">
-                    <span>PART OF OUR OFFER:</span>
-                    <h2>The Services we offer has a special value</h2>
+                    <div class="text-top">
+                        <h1>PART OF OUR OFFER:</h1>
+                        <h2>The Services we offer has a special value</h2>
+                    </div>
+
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -305,6 +308,23 @@ export default {
                         non proident, sunt in culpa qui officia deserunt mollit
                         anim id est laborum
                     </p>
+                    
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit
+                        anim id est laborum Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit
+                        anim id est laborum
+                    </p>
+
                     <a href="#contact">
                         <ButtonContact
                             :style="styleButton"
@@ -411,19 +431,24 @@ export default {
             max-width: 50%;
             text-align: right;
             color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
 
-            span {
-                font-family: "FuturaBook";
-                font-size: 32px;
-                color: #ffffff;
-            }
+            .text-top {
+                h1 {
+                    font-family: "FuturaBook";
+                    font-size: 32px;
+                    color: #ffffff;
+                }
 
-            h2 {
-                font-family: "FuturaBold";
-                font-size: 48px;
-                font-weight: 500;
-                line-height: 58px;
-                color: #21bec5;
+                h2 {
+                    font-family: "FuturaBold";
+                    font-size: 48px;
+                    font-weight: 500;
+                    line-height: 58px;
+                    color: #21bec5;
+                }
             }
 
             p {
