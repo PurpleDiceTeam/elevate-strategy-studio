@@ -86,8 +86,12 @@ export default {
                         :key="project.id"
                     >
                         <div class="carousel-content">
-                            <div class="carousel-images" >
-                                <img v-for="image in project.acf.images" :src="image" alt="" />
+                            <div class="carousel-images">
+                                <img
+                                    v-for="image in project.acf.images"
+                                    :src="image"
+                                    alt=""
+                                />
                             </div>
                             <div class="carousel-text">
                                 <div class="text-category">
@@ -123,6 +127,16 @@ export default {
 
     .portfolio-content {
         padding: 0 5%;
+        h1 {
+            color: #1e1e1e;
+            text-align: center;
+            font-family: "FuturaBook";
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-transform: uppercase;
+        }
 
         .portfolio-header {
             display: flex;
@@ -180,6 +194,7 @@ export default {
                         font-size: 20px;
                         font-weight: 400;
                         line-height: 23.97px;
+                        text-align: left;
                     }
                 }
 

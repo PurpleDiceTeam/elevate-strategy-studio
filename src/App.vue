@@ -10,6 +10,10 @@
     scroll-behavior: smooth;
 }
 
+a {
+    text-decoration: none;
+}
+
 @font-face {
     font-family: "FuturaBook";
     src: url("~@/assets/fonts/Futura Book font.ttf") format("truetype");

@@ -4,8 +4,9 @@ import Footer from "@/components/Footer.vue";
 import TimesUp from "@/components/TimesUp.vue";
 import OurOffer from "@/components/OurOffer.vue";
 import SetUsApart from "@/components/SetUsApart.vue";
-import ContactUs from "@/components/ContactUs.vue"
 import Portfolio from "@/components/Portfolio.vue";
+import Testimonials from "@/components/Testimonials.vue";
+import ContactUs from "@/components/ContactUs.vue"
 
 export default {
     components: {
@@ -14,6 +15,7 @@ export default {
         OurOffer,
         SetUsApart,
         Portfolio,
+        Testimonials,
         ContactUs,
         Footer,
     },
@@ -29,6 +31,7 @@ export default {
             <SetUsApart />
         </div>
         <Portfolio />
+        <Testimonials />
         <ContactUs />
         <Footer />
     </div>

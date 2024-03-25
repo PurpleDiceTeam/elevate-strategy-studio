@@ -31,7 +31,7 @@ button {
     transition: transform 0.5s ease;
 
     &:hover {
-        text-decoration: underline;
+        text-decoration: none;
         transform: scale(1.1);
     }
 }
