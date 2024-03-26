@@ -35,7 +35,6 @@ export default {
                 this.subtitle_left = response.data.acf.subtitle_left;
                 this.subtitle_dark = response.data.acf.subtitle_dark;
                 this.subtitle_right = response.data.acf.subtitle_right;
-                console.log(this.posts);
             } catch (error) {
                 console.error("Error fetching posts:", error);
             } finally {

@@ -262,6 +262,7 @@ export default {
 
             input,
             textarea {
+                font-family: "Montserrat"; 
                 border-radius: 6px;
                 border: none;
                 background: #25252599;

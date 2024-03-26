@@ -6,7 +6,6 @@ import axios from "axios";
 
 // Import Swiper styles
 import "swiper/css";
-
 import "swiper/css/pagination";
 
 export default {
@@ -36,7 +35,6 @@ export default {
                     /* "http://localhost/lienwordpress/index.php/wp-json/wp/v2/posts?_embed&acf_format=standard" */
                 );
                 this.posts = response.data;
-                console.log(this.posts);
             } catch (error) {
                 console.error("Error fetching posts:", error);
             } finally {
@@ -127,6 +125,7 @@ export default {
 
     .portfolio-content {
         padding: 0 5%;
+        
         h1 {
             color: #1e1e1e;
             text-align: center;
@@ -232,8 +231,4 @@ export default {
         }
     }
 }
-
-/* .myswiper {
-    padding: ;
-} */
 </style>

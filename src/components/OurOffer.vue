@@ -18,7 +18,6 @@ export default {
     methods: {
         selectCard(card) {
             this.selectedCard = card;
-            console.log(this.selectedCard);
         },
     },
 };

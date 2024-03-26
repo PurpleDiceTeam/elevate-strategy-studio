@@ -1,15 +1,40 @@
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination } from "swiper/modules";
+import axios from "axios";
 
 import "swiper/css";
 import "swiper/css/pagination";
-
 
 export default {
     components: {
         Swiper,
         SwiperSlide,
+    },
+    data() {
+        return {
+            testimonials: [],
+            isLoading: true,
+        };
+    },
+    methods: {
+        async getTestimonials() {
+            this.isLoading = false;
+            try {
+                const response = await axios.get(
+                    "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/testimonial?acf_format=standard"
+                );
+                this.testimonials = response.data;
+                console.log(this.testimonials);
+            } catch (error) {
+                console.error("Error fetching posts:", error);
+            } finally {
+                this.isLoading = false;
+            }
+        },
+    },
+    mounted() {
+        this.getTestimonials();
     },
     setup() {
         return {
@@ -36,520 +61,73 @@ export default {
                 >
                     <swiper-slide>
                         <div class="testimonials-cards">
-                            <div class="testimonial-card-large">
-                                <div class="testimonial-card-header">
-                                    <img
-                                        src="@/assets/testimonial.png"
-                                        alt=""
-                                    />
-                                    <div class="testimonial-card-header-info">
-                                        <h3>Viviana B.</h3>
-                                        <h4>CO-FOUNDER CARBONBOX</h4>
-                                    </div>
-                                </div>
-
-                                <div class="testimonial-text">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="testimonial-card-small">
+                            <div
+                                :class="{
+                                    'testimonial-card-small':
+                                        testimonial.acf.testimonial.length <
+                                        100,
+                                    'testimonial-card-medium':
+                                        testimonial.acf.testimonial.length >=
+                                            100 &&
+                                        testimonial.acf.testimonial.length <
+                                            150,
+                                    'testimonial-card-large':
+                                        testimonial.acf.testimonial.length >=
+                                        150,
+                                }"
+                                v-for="testimonial in this.testimonials"
+                            >
                                 <div class="testimonial-info">
                                     <div class="testimonial-card-header">
                                         <img
-                                            src="@/assets/testimonial.png"
+                                            :src="testimonial.acf.profile_image"
                                             alt=""
                                         />
                                         <div
                                             class="testimonial-card-header-info"
                                         >
-                                            <h3>Viviana B.</h3>
-                                            <h4>CO-FOUNDER CARBONBOX</h4>
+                                            <h3>{{ testimonial.acf.name }}</h3>
+                                            <h4>
+                                                {{ testimonial.acf.charge }}
+                                            </h4>
                                         </div>
                                     </div>
 
                                     <div class="testimonial-text">
                                         <p>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit, sed do
-                                            eiusmod tempor incididunt ut labore
-                                            et
+                                            {{ testimonial.acf.testimonial }}
                                         </p>
                                     </div>
                                 </div>
-                                <div class="stylebox-middle"></div>
-                                <div class="stylebox-right"></div>
-                            </div>
-                            <div class="testimonial-card-medium">
-                                <div class="testimonial-info">
-                                    <div class="testimonial-card-header">
-                                        <img
-                                            src="@/assets/testimonial.png"
-                                            alt=""
-                                        />
-                                        <div
-                                            class="testimonial-card-header-info"
-                                        >
-                                            <h3>Viviana B.</h3>
-                                            <h4>CO-FOUNDER CARBONBOX</h4>
-                                        </div>
-                                    </div>
 
-                                    <div class="testimonial-text">
-                                        <p>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit, sed do
-                                            eiusmod tempor incididunt ut labore
-                                            et dolore magna aliqua. eiusmod
-                                            tempor incididunt ut labore.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="stylebox">
+                                <div
+                                    class="stylebox-middle"
+                                    v-if="
+                                        testimonial.acf.testimonial.length < 100
+                                    "
+                                ></div>
+                                <div
+                                    class="stylebox-right"
+                                    v-if="
+                                        testimonial.acf.testimonial.length < 100
+                                    "
+                                ></div>
+
+                                <div
+                                    class="stylebox"
+                                    v-if="
+                                        testimonial.acf.testimonial.length >
+                                            100 &&
+                                        testimonial.acf.testimonial.length < 150
+                                    "
+                                >
                                     <div class="stylebox-top"></div>
                                     <div class="stylebox-bottom"></div>
-                                </div>
-                            </div>
-                            <div class="testimonial-card-large">
-                                <div class="testimonial-card-header">
-                                    <img
-                                        src="@/assets/testimonial.png"
-                                        alt=""
-                                    />
-                                    <div class="testimonial-card-header-info">
-                                        <h3>Viviana B.</h3>
-                                        <h4>CO-FOUNDER CARBONBOX</h4>
-                                    </div>
-                                </div>
-
-                                <div class="testimonial-text">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="testimonials-cards">
-                            <div class="testimonial-card-large">
-                                <div class="testimonial-card-header">
-                                    <img
-                                        src="@/assets/testimonial.png"
-                                        alt=""
-                                    />
-                                    <div class="testimonial-card-header-info">
-                                        <h3>Viviana B.</h3>
-                                        <h4>CO-FOUNDER CARBONBOX</h4>
-                                    </div>
-                                </div>
-
-                                <div class="testimonial-text">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="testimonial-card-small">
-                                <div class="testimonial-info">
-                                    <div class="testimonial-card-header">
-                                        <img
-                                            src="@/assets/testimonial.png"
-                                            alt=""
-                                        />
-                                        <div
-                                            class="testimonial-card-header-info"
-                                        >
-                                            <h3>Viviana B.</h3>
-                                            <h4>CO-FOUNDER CARBONBOX</h4>
-                                        </div>
-                                    </div>
-
-                                    <div class="testimonial-text">
-                                        <p>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit, sed do
-                                            eiusmod tempor incididunt ut labore
-                                            et
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="stylebox-middle"></div>
-                                <div class="stylebox-right"></div>
-                            </div>
-                            <div class="testimonial-card-medium">
-                                <div class="testimonial-info">
-                                    <div class="testimonial-card-header">
-                                        <img
-                                            src="@/assets/testimonial.png"
-                                            alt=""
-                                        />
-                                        <div
-                                            class="testimonial-card-header-info"
-                                        >
-                                            <h3>Viviana B.</h3>
-                                            <h4>CO-FOUNDER CARBONBOX</h4>
-                                        </div>
-                                    </div>
-
-                                    <div class="testimonial-text">
-                                        <p>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit, sed do
-                                            eiusmod tempor incididunt ut labore
-                                            et dolore magna aliqua. eiusmod
-                                            tempor incididunt ut labore.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="stylebox">
-                                    <div class="stylebox-top"></div>
-                                    <div class="stylebox-bottom"></div>
-                                </div>
-                            </div>
-                            <div class="testimonial-card-large">
-                                <div class="testimonial-card-header">
-                                    <img
-                                        src="@/assets/testimonial.png"
-                                        alt=""
-                                    />
-                                    <div class="testimonial-card-header-info">
-                                        <h3>Viviana B.</h3>
-                                        <h4>CO-FOUNDER CARBONBOX</h4>
-                                    </div>
-                                </div>
-
-                                <div class="testimonial-text">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="testimonials-cards">
-                            <div class="testimonial-card-large">
-                                <div class="testimonial-card-header">
-                                    <img
-                                        src="@/assets/testimonial.png"
-                                        alt=""
-                                    />
-                                    <div class="testimonial-card-header-info">
-                                        <h3>Viviana B.</h3>
-                                        <h4>CO-FOUNDER CARBONBOX</h4>
-                                    </div>
-                                </div>
-
-                                <div class="testimonial-text">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="testimonial-card-small">
-                                <div class="testimonial-info">
-                                    <div class="testimonial-card-header">
-                                        <img
-                                            src="@/assets/testimonial.png"
-                                            alt=""
-                                        />
-                                        <div
-                                            class="testimonial-card-header-info"
-                                        >
-                                            <h3>Viviana B.</h3>
-                                            <h4>CO-FOUNDER CARBONBOX</h4>
-                                        </div>
-                                    </div>
-
-                                    <div class="testimonial-text">
-                                        <p>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit, sed do
-                                            eiusmod tempor incididunt ut labore
-                                            et
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="stylebox-middle"></div>
-                                <div class="stylebox-right"></div>
-                            </div>
-                            <div class="testimonial-card-medium">
-                                <div class="testimonial-info">
-                                    <div class="testimonial-card-header">
-                                        <img
-                                            src="@/assets/testimonial.png"
-                                            alt=""
-                                        />
-                                        <div
-                                            class="testimonial-card-header-info"
-                                        >
-                                            <h3>Viviana B.</h3>
-                                            <h4>CO-FOUNDER CARBONBOX</h4>
-                                        </div>
-                                    </div>
-
-                                    <div class="testimonial-text">
-                                        <p>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit, sed do
-                                            eiusmod tempor incididunt ut labore
-                                            et dolore magna aliqua. eiusmod
-                                            tempor incididunt ut labore.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="stylebox">
-                                    <div class="stylebox-top"></div>
-                                    <div class="stylebox-bottom"></div>
-                                </div>
-                            </div>
-                            <div class="testimonial-card-large">
-                                <div class="testimonial-card-header">
-                                    <img
-                                        src="@/assets/testimonial.png"
-                                        alt=""
-                                    />
-                                    <div class="testimonial-card-header-info">
-                                        <h3>Viviana B.</h3>
-                                        <h4>CO-FOUNDER CARBONBOX</h4>
-                                    </div>
-                                </div>
-
-                                <div class="testimonial-text">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="testimonials-cards">
-                            <div class="testimonial-card-large">
-                                <div class="testimonial-card-header">
-                                    <img
-                                        src="@/assets/testimonial.png"
-                                        alt=""
-                                    />
-                                    <div class="testimonial-card-header-info">
-                                        <h3>Viviana B.</h3>
-                                        <h4>CO-FOUNDER CARBONBOX</h4>
-                                    </div>
-                                </div>
-
-                                <div class="testimonial-text">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="testimonial-card-small">
-                                <div class="testimonial-info">
-                                    <div class="testimonial-card-header">
-                                        <img
-                                            src="@/assets/testimonial.png"
-                                            alt=""
-                                        />
-                                        <div
-                                            class="testimonial-card-header-info"
-                                        >
-                                            <h3>Viviana B.</h3>
-                                            <h4>CO-FOUNDER CARBONBOX</h4>
-                                        </div>
-                                    </div>
-
-                                    <div class="testimonial-text">
-                                        <p>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit, sed do
-                                            eiusmod tempor incididunt ut labore
-                                            et
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="stylebox-middle"></div>
-                                <div class="stylebox-right"></div>
-                            </div>
-                            <div class="testimonial-card-medium">
-                                <div class="testimonial-info">
-                                    <div class="testimonial-card-header">
-                                        <img
-                                            src="@/assets/testimonial.png"
-                                            alt=""
-                                        />
-                                        <div
-                                            class="testimonial-card-header-info"
-                                        >
-                                            <h3>Viviana B.</h3>
-                                            <h4>CO-FOUNDER CARBONBOX</h4>
-                                        </div>
-                                    </div>
-
-                                    <div class="testimonial-text">
-                                        <p>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit, sed do
-                                            eiusmod tempor incididunt ut labore
-                                            et dolore magna aliqua. eiusmod
-                                            tempor incididunt ut labore.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="stylebox">
-                                    <div class="stylebox-top"></div>
-                                    <div class="stylebox-bottom"></div>
-                                </div>
-                            </div>
-                            <div class="testimonial-card-large">
-                                <div class="testimonial-card-header">
-                                    <img
-                                        src="@/assets/testimonial.png"
-                                        alt=""
-                                    />
-                                    <div class="testimonial-card-header-info">
-                                        <h3>Viviana B.</h3>
-                                        <h4>CO-FOUNDER CARBONBOX</h4>
-                                    </div>
-                                </div>
-
-                                <div class="testimonial-text">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna
-                                        aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris
-                                        nisi ut aliquip ex ea commodo consequat.
-                                    </p>
                                 </div>
                             </div>
                         </div>
                     </swiper-slide>
                 </swiper>
-                <!--                 <div class="testimonials-cards">
-                    <div class="testimonial-card-large">
-                        <div class="testimonial-card-header">
-                            <img src="@/assets/testimonial.png" alt="" />
-                            <div class="testimonial-card-header-info">
-                                <h3>Viviana B.</h3>
-                                <h4>CO-FOUNDER CARBONBOX</h4>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-text">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="testimonial-card-small">
-                        <div class="testimonial-info">
-                            <div class="testimonial-card-header">
-                                <img src="@/assets/testimonial.png" alt="" />
-                                <div class="testimonial-card-header-info">
-                                    <h3>Viviana B.</h3>
-                                    <h4>CO-FOUNDER CARBONBOX</h4>
-                                </div>
-                            </div>
-
-                            <div class="testimonial-text">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et
-                                </p>
-                            </div>
-                        </div>
-                        <div class="stylebox-middle"></div>
-                        <div class="stylebox-right"></div>
-                    </div>
-                    <div class="testimonial-card-medium">
-                        <div class="testimonial-info">
-                            <div class="testimonial-card-header">
-                                <img src="@/assets/testimonial.png" alt="" />
-                                <div class="testimonial-card-header-info">
-                                    <h3>Viviana B.</h3>
-                                    <h4>CO-FOUNDER CARBONBOX</h4>
-                                </div>
-                            </div>
-
-                            <div class="testimonial-text">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua.
-                                    eiusmod tempor incididunt ut labore.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="stylebox">
-                            <div class="stylebox-top"></div>
-                            <div class="stylebox-bottom"></div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card-large">
-                        <div class="testimonial-card-header">
-                            <img src="@/assets/testimonial.png" alt="" />
-                            <div class="testimonial-card-header-info">
-                                <h3>Viviana B.</h3>
-                                <h4>CO-FOUNDER CARBONBOX</h4>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-text">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat.
-                            </p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
@@ -643,6 +221,7 @@ export default {
 
                 .testimonial-text {
                     p {
+                        padding-top: 16px;
                         color: #e0e0e0;
                         font-family: "Montserrat";
                         font-size: 20px;
