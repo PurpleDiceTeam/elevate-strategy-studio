@@ -15,11 +15,12 @@ export default {
         return {
             testimonials: [],
             isLoading: true,
+            testimonialsPerSlide: 4 // Define the number of testimonials per slide
         };
     },
     methods: {
         async getTestimonials() {
-            this.isLoading = false;
+            this.isLoading = true; // Set isLoading to true when fetching data
             try {
                 const response = await axios.get(
                     "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/testimonial?acf_format=standard"
@@ -29,8 +30,22 @@ export default {
             } catch (error) {
                 console.error("Error fetching posts:", error);
             } finally {
-                this.isLoading = false;
+                this.isLoading = false; // Set isLoading to false after fetching data
             }
+        },
+        chunkTestimonials(testimonials, size) {
+            // Function to split testimonials into chunks
+            const chunkedArray = [];
+            for (let i = 0; i < testimonials.length; i += size) {
+                chunkedArray.push(testimonials.slice(i, i + size));
+            }
+            return chunkedArray;
+        },
+    },
+    computed: {
+        testimonialsChunks() {
+            // Compute the chunks of testimonials
+            return this.chunkTestimonials(this.testimonials, this.testimonialsPerSlide);
         },
     },
     mounted() {
@@ -59,7 +74,7 @@ export default {
                     :modules="modules"
                     class="mySwiper"
                 >
-                    <swiper-slide>
+                    <swiper-slide v-for="(chunk, index) in testimonialsChunks" :key="index">
                         <div class="testimonials-cards">
                             <div
                                 :class="{
@@ -75,7 +90,8 @@ export default {
                                         testimonial.acf.testimonial.length >=
                                         150,
                                 }"
-                                v-for="testimonial in this.testimonials"
+                                v-for="testimonial in chunk"
+                                :key="testimonial.id"
                             >
                                 <div class="testimonial-info">
                                     <div class="testimonial-card-header">
