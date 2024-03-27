@@ -21,7 +21,12 @@ export default {
     },
     methods: {
         async submitForm() {
-            console.log(this.formName, this.formEmail, this.formPhone, this.formMessage)
+            console.log(
+                this.formName,
+                this.formEmail,
+                this.formPhone,
+                this.formMessage
+            );
             try {
                 const response = await axios.post(
                     "https://formspree.io/f/xqkrdjwk",
@@ -38,7 +43,7 @@ export default {
                 console.error("Error submitting form", error);
             }
         },
-    }
+    },
 };
 </script>
 
@@ -182,9 +187,21 @@ export default {
                     </div>
                 </div>
                 <div class="contact-form">
-                    <input type="text" v-model="this.formName" placeholder="Name" />
-                    <input type="text" v-model="this.formemail" placeholder="E-mail" />
-                    <input type="text" v-model="this.formphone" placeholder="Phone number (optional)" />
+                    <input
+                        type="text"
+                        v-model="this.formName"
+                        placeholder="Name"
+                    />
+                    <input
+                        type="text"
+                        v-model="this.formemail"
+                        placeholder="E-mail"
+                    />
+                    <input
+                        type="text"
+                        v-model="this.formphone"
+                        placeholder="Phone number (optional)"
+                    />
                     <textarea
                         v-model="this.formMessage"
                         name=""
@@ -262,7 +279,7 @@ export default {
 
             input,
             textarea {
-                font-family: "Montserrat"; 
+                font-family: "Montserrat";
                 border-radius: 6px;
                 border: none;
                 background: #25252599;
@@ -274,6 +291,18 @@ export default {
                 &:focus {
                     outline: none;
                 }
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .contact-content {
+            flex-direction: column;
+
+            .contact-form,
+            .contact-text {
+                width: 100%;
+                align-items: center;
             }
         }
     }

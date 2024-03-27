@@ -32,9 +32,10 @@ export default {
         </div>
         <Portfolio />
         <Testimonials />
-        <ContactUs />
+        
         
     </div>
+    <ContactUs />
     <Footer />
 </template>
 
