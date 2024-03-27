@@ -33,13 +33,16 @@ export default {
         <Portfolio />
         <Testimonials />
         <ContactUs />
-        <Footer />
+        
     </div>
+    <Footer />
 </template>
 
 <style lang="scss">
 .body {
-
+    @media (max-width: 1200px) {
+        display: none;
+    }
     .testing {
         background-image: url("@/assets/Rectangle 4.png");
         background-repeat: no-repeat;

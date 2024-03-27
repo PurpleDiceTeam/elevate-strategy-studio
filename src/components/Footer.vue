@@ -243,9 +243,8 @@ export default {};
 .footer-container {
     background: #1b1b1b;
     
-
     .footer-content {
-        padding: 35px 15%;
+        padding: 35px 5%;
         border-top-left-radius: 95px;
         border-top-right-radius: 95px;
         background: #222222;
@@ -309,6 +308,22 @@ export default {};
                     text-decoration: underline;
                     transform: scale(1.1);
                 }
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .footer-content {
+            .footer-top {
+                flex-direction: column;
+                align-items: center;
+                gap: 32px;
+            }
+        }
+        .footer-bottom {
+            .footer-bottom-content {
+                flex-direction: column;
+                gap: 6px;
             }
         }
     }
