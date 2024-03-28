@@ -54,11 +54,32 @@ export default {
                     <a href="">Contact</a>
                 </div>
 
-                <a href="#contact">
+                <a href="#contact" class="contact-us">
                     <ButtonContact
                         :style="styleButton"
                         :buttonText="'Contact Us'"
                     />
+                </a>
+
+                <a href="#contact" class="contact-us-mobile">
+                    <svg
+                        width="60"
+                        height="60"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M32.8571 26.6H22.1429C21.5745 26.6 21.0295 26.8318 20.6276 27.2444C20.2258 27.6569 20 28.2165 20 28.8C20 29.3835 20.2258 29.9431 20.6276 30.3556C21.0295 30.7682 21.5745 31 22.1429 31H32.8571C33.4255 31 33.9705 30.7682 34.3724 30.3556C34.7742 29.9431 35 29.3835 35 28.8C35 28.2165 34.7742 27.6569 34.3724 27.2444C33.9705 26.8318 33.4255 26.6 32.8571 26.6ZM32.8571 17.8H7.14286C6.57454 17.8 6.02949 18.0318 5.62763 18.4444C5.22576 18.8569 5 19.4165 5 20C5 20.5835 5.22576 21.1431 5.62763 21.5556C6.02949 21.9682 6.57454 22.2 7.14286 22.2H32.8571C33.4255 22.2 33.9705 21.9682 34.3724 21.5556C34.7742 21.1431 35 20.5835 35 20C35 19.4165 34.7742 18.8569 34.3724 18.4444C33.9705 18.0318 33.4255 17.8 32.8571 17.8Z"
+                            fill="#21BEC5"
+                        />
+                        <path
+                            d="M7.14286 9H17.8571C18.4255 9 18.9705 9.23179 19.3724 9.64437C19.7742 10.0569 20 10.6165 20 11.2C20 11.7835 19.7742 12.3431 19.3724 12.7556C18.9705 13.1682 18.4255 13.4 17.8571 13.4H7.14286C6.57454 13.4 6.02949 13.1682 5.62763 12.7556C5.22576 12.3431 5 11.7835 5 11.2C5 10.6165 5.22576 10.0569 5.62763 9.64437C6.02949 9.23179 6.57454 9 7.14286 9Z"
+                            fill="#FF645A"
+                        />
+                    </svg>
                 </a>
             </div>
         </div>
@@ -95,6 +116,37 @@ export default {
                 text-align: left;
                 color: #ffffff;
                 text-decoration: none;
+            }
+        }
+
+        .contact-us-mobile {
+            display: none;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        padding: 0 5%;
+
+        .navbar-content {
+            width: auto;
+
+            .navbar-options {
+                background-color: rgb(0, 0, 0, 0.5);
+                flex-direction: column;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                height: 100%;
+            }
+
+            .contact-us-mobile {
+                display: flex;
+            }
+
+            .contact-us {
+                display: none;
             }
         }
     }

@@ -6,7 +6,7 @@ import OurOffer from "@/components/OurOffer.vue";
 import SetUsApart from "@/components/SetUsApart.vue";
 import Portfolio from "@/components/Portfolio.vue";
 import Testimonials from "@/components/Testimonials.vue";
-import ContactUs from "@/components/ContactUs.vue"
+import ContactUs from "@/components/ContactUs.vue";
 
 export default {
     components: {
@@ -23,8 +23,8 @@ export default {
 </script>
 
 <template>
+    <Hero />
     <div class="body">
-        <Hero />
         <div class="testing">
             <TimesUp />
             <OurOffer />
@@ -32,8 +32,6 @@ export default {
         </div>
         <Portfolio />
         <Testimonials />
-        
-        
     </div>
     <ContactUs />
     <Footer />

@@ -210,7 +210,7 @@ export default {
                         rows="10"
                         placeholder="Text"
                     ></textarea>
-                    <div>
+                    <div class="button-send">
                         <ButtonContact
                             @click="submitForm"
                             :style="styleButton"
@@ -246,6 +246,7 @@ export default {
                 font-family: "FuturaBook";
                 font-size: 32px;
                 color: #ffffff;
+                text-align: left;
             }
 
             h2 {
@@ -254,6 +255,7 @@ export default {
                 font-weight: 500;
                 line-height: 58px;
                 color: #21bec5;
+                text-align: left;
             }
 
             p {
@@ -263,6 +265,7 @@ export default {
                 line-height: 32px;
                 letter-spacing: 0em;
                 color: #ffffff;
+                text-align: left;
             }
 
             .contact-social {
@@ -298,11 +301,20 @@ export default {
     @media (max-width: 1200px) {
         .contact-content {
             flex-direction: column;
+            padding: 120px 5% 100px 5%;
+
+            .contact-social {
+                margin: 0 auto;
+            }
 
             .contact-form,
             .contact-text {
                 width: 100%;
-                align-items: center;
+                /* align-items: center; */
+            }
+
+            .button-send {
+                margin: 0 auto;
             }
         }
     }

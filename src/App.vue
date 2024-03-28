@@ -46,5 +46,10 @@ a {
 .custom-container {
     width: 85%;
     max-width: 1920px;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+        max-width: 1200px;
+    }
 }
 </style>

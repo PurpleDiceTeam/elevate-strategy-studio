@@ -174,5 +174,13 @@ export default {
         justify-content: center;
         align-items: flex-start;
     }
+
+    @media(max-width: 1200px) {
+        .hero-top,
+        .hero-bottom,
+        .hero-button {
+            display: none;
+        }
+    }
 }
 </style>
