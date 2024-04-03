@@ -60,7 +60,7 @@ export default {};
 
 <style lang="scss">
 .timesup-container {
-    margin-top: -124px;
+    margin-top: -130px;
     display: flex;
     background-image: url("@/assets/backgrounds/Parte 1.png");
     background-position: center;
@@ -69,6 +69,7 @@ export default {};
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 120px;
 
     .timesup-logo-container {
         display: flex;

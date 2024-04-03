@@ -11,6 +11,7 @@ const routes = [
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
+    base: '/gonzawordpress/', // Set the base property to the subdirectory where WordPress is installed
     routes,
 });
 

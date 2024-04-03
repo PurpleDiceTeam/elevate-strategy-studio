@@ -197,6 +197,7 @@ export default {
                         </a>
                     </div>
                 </div>
+                <img src="@/assets/hand.png" alt="">
             </div>
         </div>
     </div>
@@ -207,9 +208,11 @@ export default {
     display: flex;
     justify-content: center;
     background-image: url("@/assets/backgrounds/Parte 3.png");
-    padding-bottom: 50px;
+    background-repeat: no-repeat;
+    padding: 80px 0;
 
     .setusapart-content {
+        display: flex;
         padding: 50px 5%;
         .setusapart-text {
             display: flex;
