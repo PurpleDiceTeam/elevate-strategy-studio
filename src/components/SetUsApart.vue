@@ -206,6 +206,8 @@ export default {
 .setusapart-container {
     display: flex;
     justify-content: center;
+    background-image: url("@/assets/backgrounds/Parte 3.png");
+    padding-bottom: 50px;
 
     .setusapart-content {
         padding: 50px 5%;

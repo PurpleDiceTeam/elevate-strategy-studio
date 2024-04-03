@@ -24,16 +24,14 @@ export default {
 
 <template>
     <Hero />
-    <div class="body">
-        <div class="testing">
-            <TimesUp />
-            <OurOffer />
-            <SetUsApart />
-        </div>
-        <Portfolio />
-        <Testimonials />
-    </div>
+
+    <TimesUp />
+    <OurOffer />
+    <SetUsApart />
+    <Portfolio />
+    <Testimonials />
     <ContactUs />
+
     <Footer />
 </template>
 
@@ -41,10 +39,6 @@ export default {
 .body {
     @media (max-width: 1200px) {
         display: none;
-    }
-    .testing {
-        background-image: url("@/assets/Rectangle 4.png");
-        background-repeat: no-repeat;
     }
 }
 </style>

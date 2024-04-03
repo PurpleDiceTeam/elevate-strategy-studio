@@ -62,7 +62,7 @@ export default {};
 .timesup-container {
     margin-top: -124px;
     display: flex;
-/*     background-image: url("@/assets/timesupbg.webp"); */
+    background-image: url("@/assets/backgrounds/Parte 1.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
