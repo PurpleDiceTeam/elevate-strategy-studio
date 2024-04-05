@@ -30,8 +30,8 @@ export default {
             this.isLoading = false;
             try {
                 const response = await axios.get(
-                    /* "https://elevatess.000webhostapp.com/wp-json/wp/v2/project?acf_format=standard" */
-                    "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/project?acf_format=standard"
+                    "https://elevatess.000webhostapp.com/wp-json/wp/v2/project?acf_format=standard"
+                    /* "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/project?acf_format=standard" */
                     /* "http://localhost/lienwordpress/index.php/wp-json/wp/v2/posts?_embed&acf_format=standard" */
                 );
                 this.posts = response.data;
