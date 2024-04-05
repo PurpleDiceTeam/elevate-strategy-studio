@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-    <Hero />
+<!--     <Hero /> -->
 
     <TimesUp />
     <OurOffer />

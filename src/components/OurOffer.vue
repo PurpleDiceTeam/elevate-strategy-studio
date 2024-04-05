@@ -285,6 +285,13 @@ export default {
                             </p>
                         </div>
                     </article>
+
+                    <a href="#contact">
+                        <ButtonContact
+                            :style="styleButton"
+                            :buttonText="'Connect With Us'"
+                        />
+                    </a>
                 </div>
                 <div class="text-container">
                     <div class="text-top">
@@ -307,7 +314,7 @@ export default {
                         non proident, sunt in culpa qui officia deserunt mollit
                         anim id est laborum
                     </p>
-                    
+
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
@@ -423,6 +430,10 @@ export default {
                     }
                 }
             }
+
+            a {
+                display: none;
+            }
         }
 
         .text-container {
@@ -457,6 +468,35 @@ export default {
                 font-weight: 400;
                 line-height: 32px;
                 letter-spacing: 0em;
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .ouroffer-content {
+            flex-direction: column-reverse;
+
+            .cards-container {
+                max-width: 100%;
+
+                article {
+                    .card-text {
+                        padding: 24px 24px 74px 24px;
+                    }
+                }
+
+                a {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+
+            .text-container {
+                max-width: 100%;
+
+                a {
+                    display: none;
+                }
             }
         }
     }

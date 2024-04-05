@@ -30,8 +30,8 @@ export default {
             this.isLoading = false;
             try {
                 const response = await axios.get(
-                    "https://elevatess.000webhostapp.com/wp-json/wp/v2/project?acf_format=standard"
-                    /* "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/project?acf_format=standard" */
+                    /* "https://elevatess.000webhostapp.com/wp-json/wp/v2/project?acf_format=standard" */
+                    "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/project?acf_format=standard"
                     /* "http://localhost/lienwordpress/index.php/wp-json/wp/v2/posts?_embed&acf_format=standard" */
                 );
                 this.posts = response.data;
@@ -86,8 +86,9 @@ export default {
                         <div class="carousel-content">
                             <div class="carousel-images">
                                 <img
-                                    v-for="image in project.acf.images"
+                                    v-for="(image, index) in project.acf.images"
                                     :src="image"
+                                    :id="'image_' + index"
                                     alt=""
                                 />
                             </div>
@@ -96,6 +97,10 @@ export default {
                                     <h1>BRANDING</h1>
                                 </div>
                                 <h2>{{ project.title.rendered }}</h2>
+                                <img
+                                    :src="project.acf.images[0]"
+                                    alt="project-image"
+                                />
                                 <h3>Subtitle</h3>
                                 <p>
                                     {{ project.acf.description }}
@@ -113,6 +118,14 @@ export default {
                         </div>
                     </swiper-slide>
                 </swiper>
+                <div class="portfolio-button-outside">
+                    <a href="#contact">
+                        <ButtonContact
+                            :style="styleButton"
+                            :buttonText="'Connect With Us'"
+                        />
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -125,7 +138,7 @@ export default {
 
     .portfolio-content {
         padding: 0 5%;
-        
+
         h1 {
             color: #1e1e1e;
             text-align: center;
@@ -184,6 +197,7 @@ export default {
             .carousel-text {
                 width: 100%;
                 max-width: 50%;
+
                 .text-category {
                     padding-bottom: 16px;
                     border-bottom: solid 1px #8c8c8c;
@@ -195,6 +209,10 @@ export default {
                         line-height: 23.97px;
                         text-align: left;
                     }
+                }
+
+                img {
+                    display: none;
                 }
 
                 h2 {
@@ -226,6 +244,44 @@ export default {
 
                 .portfolio-button {
                     padding-top: 48px;
+                }
+            }
+        }
+
+        .portfolio-button-outside {
+            display: none;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .portfolio-content {
+            padding: 10px 0;
+            /* margin: 0 5%; */
+            .carousel-content {
+                margin: 20px 5%;
+                border: none;
+                border-radius: 16px;
+                padding: 24px;
+                border: solid 1px rgb(0, 0, 0, 0.2);
+                background: #f0f0f0;
+                box-shadow: 0px 4px 34.9px 0px rgba(128, 128, 128, 0.25);
+
+                .carousel-images {
+                    display: none;
+                }
+
+                .carousel-text {
+                    max-width: 100%;
+
+                    img {
+                        display: block;
+                        padding-top: 20px;
+                        width: 279px;
+                    }
+
+                    .portfolio-button {
+                        display: none;
+                    }
                 }
             }
         }

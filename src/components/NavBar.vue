@@ -130,7 +130,7 @@ export default {
         .navbar-content {
             width: auto;
 
-            .navbar-options {
+/*             .navbar-options {
                 background-color: rgb(0, 0, 0, 0.5);
                 flex-direction: column;
                 position: fixed;
@@ -139,7 +139,7 @@ export default {
                 transform: translate(-50%, -50%);
                 width: 100%;
                 height: 100%;
-            }
+            } */
 
             .contact-us-mobile {
                 display: flex;

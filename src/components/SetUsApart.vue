@@ -216,6 +216,7 @@ export default {
     .setusapart-content {
         display: flex;
         padding: 50px 5%;
+
         .setusapart-text {
             display: flex;
             flex-direction: column;
@@ -263,6 +264,16 @@ export default {
                     letter-spacing: 0em;
                     text-align: left;
                 }
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .setusapart-content {
+            flex-direction: column;
+
+            .setusapart-text {
+                max-width: 100%;
             }
         }
     }

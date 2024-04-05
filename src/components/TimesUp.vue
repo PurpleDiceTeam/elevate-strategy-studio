@@ -124,5 +124,27 @@ export default {};
             }
         }
     }
+
+    @media (max-width: 1200px) {
+        background-size: cover;
+        .timesup-content{
+            padding: 0;
+            width: 100%;
+            flex-direction: column;
+            gap: 56px;
+            box-shadow: none;
+            background: none;
+
+            .timesup-text {
+                padding: 56px;
+                max-width: 80%;
+            }
+
+            img {
+                max-width: 80%;
+            }
+        }
+
+    }
 }
 </style>
