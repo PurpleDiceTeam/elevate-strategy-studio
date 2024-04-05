@@ -23,8 +23,8 @@ export default {
             this.isLoading = true; // Set isLoading to true when fetching data
             try {
                 const response = await axios.get(
-                    "https://elevatess.000webhostapp.com/wp-json/wp/v2/project?acf_format=standard"
-                    /* "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/testimonial?acf_format=standard" */
+                    "https://elevatess.000webhostapp.com/wp-json/wp/v2/testimonial?acf_format=standard"
+                   /* "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/testimonial?acf_format=standard" */
                 );
                 this.testimonials = response.data;
                 console.log(this.testimonials);
