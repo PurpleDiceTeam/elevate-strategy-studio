@@ -156,7 +156,11 @@ export default {
 .testimonials-container {
     display: flex;
     justify-content: center;
-    background-color: #1e1e1e;
+    background-image: url("@/assets/testimonial-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 
     .testimonials-content {
         padding: 120px 5%;

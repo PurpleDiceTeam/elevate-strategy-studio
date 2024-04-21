@@ -135,6 +135,11 @@ export default {
 .portfolio-container {
     display: flex;
     justify-content: center;
+    background-image: url("@/assets/portfolio-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 
     .portfolio-content {
         padding: 0 5%;

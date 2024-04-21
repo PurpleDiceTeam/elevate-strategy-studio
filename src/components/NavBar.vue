@@ -128,9 +128,19 @@ export default {
         padding: 0 5%;
 
         .navbar-content {
-            width: auto;
+            background: linear-gradient(
+                270deg,
+                rgba(0, 0, 0, 0.16) -10.73%,
+                rgba(0, 0, 0, 0.5) 103.75%
+            );
+            box-shadow: 0px 4px 121.6px 0px rgba(0, 0, 0, 0.45);
 
-/*             .navbar-options {
+            position: fixed;
+            z-index: 99;
+            width: 80%;
+
+            .navbar-options {
+                display: none;
                 background-color: rgb(0, 0, 0, 0.5);
                 flex-direction: column;
                 position: fixed;
@@ -139,7 +149,8 @@ export default {
                 transform: translate(-50%, -50%);
                 width: 100%;
                 height: 100%;
-            } */
+                filter: blur(4px);
+            }
 
             .contact-us-mobile {
                 display: flex;
