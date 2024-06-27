@@ -24,6 +24,7 @@ export default {
     },
     methods: {
         async getPosts() {
+            console.log("API URL:", process.env.VUE_APP_HERO);
             this.isLoading = false;
             try {
                 const response = await axios.get(process.env.VUE_APP_HERO);
