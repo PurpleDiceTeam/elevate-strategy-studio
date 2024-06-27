@@ -22,9 +22,7 @@ export default {
         async getTestimonials() {
             this.isLoading = true; // Set isLoading to true when fetching data
             try {
-                const response = await axios.get(
-                    "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/testimonial?acf_format=standard"
-                );
+                const response = await axios.get(process.env.VUE_APP_TESTIMONIALS);
                 this.testimonials = response.data;
                 console.log(this.testimonials);
             } catch (error) {
