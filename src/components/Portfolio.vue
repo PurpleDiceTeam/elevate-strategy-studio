@@ -29,11 +29,7 @@ export default {
         async getPosts() {
             this.isLoading = false;
             try {
-                const response = await axios.get(
-                    "https://elevatess.000webhostapp.com/wp-json/wp/v2/project?acf_format=standard"
-                    /* "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/project?acf_format=standard" */
-                    /* "http://localhost/lienwordpress/index.php/wp-json/wp/v2/posts?_embed&acf_format=standard" */
-                );
+                const response = await axios.get(process.env.VUE_APP_PORTFOLIO);
                 this.posts = response.data;
             } catch (error) {
                 console.error("Error fetching posts:", error);
@@ -135,6 +131,11 @@ export default {
 .portfolio-container {
     display: flex;
     justify-content: center;
+    background-image: url("@/assets/portfolio-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 
     .portfolio-content {
         padding: 0 5%;

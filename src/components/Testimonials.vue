@@ -22,10 +22,7 @@ export default {
         async getTestimonials() {
             this.isLoading = true; // Set isLoading to true when fetching data
             try {
-                const response = await axios.get(
-                    "https://elevatess.000webhostapp.com/wp-json/wp/v2/testimonial?acf_format=standard"
-                   /* "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/testimonial?acf_format=standard" */
-                );
+                const response = await axios.get(process.env.VUE_APP_TESTIMONIALS);
                 this.testimonials = response.data;
                 console.log(this.testimonials);
             } catch (error) {
@@ -157,7 +154,11 @@ export default {
 .testimonials-container {
     display: flex;
     justify-content: center;
-    background-color: #1e1e1e;
+    background-image: url("@/assets/testimonial-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 
     .testimonials-content {
         padding: 120px 5%;

@@ -210,7 +210,7 @@ export default {
     background-image: url("@/assets/backgrounds/Parte 3.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
     padding: 80px 0;
 
     .setusapart-content {

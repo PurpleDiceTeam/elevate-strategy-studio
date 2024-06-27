@@ -26,10 +26,7 @@ export default {
         async getPosts() {
             this.isLoading = false;
             try {
-                const response = await axios.get(
-                    "https://elevatess.000webhostapp.com/wp-json/wp/v2/pages/27/?acf_format=standard"
-                /* "http://localhost/gonzawordpress/index.php/wp-json/wp/v2/pages/7/?acf_format=standard" */
-                );
+                const response = await axios.get(process.env.VUE_APP_HERO);
                 this.title_left = response.data.acf.title_left;
                 this.title_right = response.data.acf.title_right;
                 this.subtitle_left = response.data.acf.subtitle_left;

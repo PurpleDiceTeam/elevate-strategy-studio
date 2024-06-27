@@ -241,7 +241,10 @@ export default {};
 
 <style lang="scss">
 .footer-container {
-    background: #1b1b1b;
+    background-image: url("@/assets/contact-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     
     .footer-content {
         padding: 35px 5%;

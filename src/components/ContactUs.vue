@@ -227,6 +227,11 @@ export default {
 .contact-container {
     display: flex;
     justify-content: center;
+    background-image: url("@/assets/contact-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 
     .contact-content {
         border-radius: 150px 150px 0px 0px;
