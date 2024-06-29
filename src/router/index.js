@@ -8,11 +8,11 @@ const routes = [
         component: HomeView,
     },
     // Add the catch-all route
-    {
+/*     {
         path: '/:catchAll(.*)', // Matches any path
         name: 'catchAll',
         component: HomeView, // Or specify another component if desired
-    }
+    } */
 ];
 
 const router = createRouter({
