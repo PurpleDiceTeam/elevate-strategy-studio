@@ -3,7 +3,7 @@ export default {};
 </script>
 
 <template>
-    <div class="timesup-container">
+    <div class="timesup-container" id="times-up">
         <div class="timesup-logo-container">
             <div class="timesup-logo-content">
                 <svg
@@ -60,9 +60,9 @@ export default {};
 
 <style lang="scss">
 .timesup-container {
-    margin-top: -130px;
+/*     margin-top: -130px; */
     display: flex;
-    background-image: url("@/assets/backgrounds/Parte 1.png");
+    //background-image: url("@/assets/backgrounds/Parte 1.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -79,7 +79,7 @@ export default {};
 
     .timesup-content {
         border-radius: 0px 0px 150px 150px;
-        padding: 120px 5%;
+        padding: 100px 5%;
         display: flex;
         justify-content: space-between;
         align-items: center;

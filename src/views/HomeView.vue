@@ -24,9 +24,12 @@ export default {
 
 <template>
     <Hero />
-    <TimesUp />
-    <OurOffer />
-    <SetUsApart />
+    <div class="special-bg">
+        <TimesUp />
+        <OurOffer />
+        <SetUsApart />
+    </div>
+
     <Portfolio />
     <Testimonials />
     <ContactUs />
@@ -35,6 +38,17 @@ export default {
 </template>
 
 <style lang="scss">
+.special-bg {
+    background-image: url("@/assets/complete-bg.png");
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-top: -100px;
+    position: relative;
+    z-index: 5;
+}
+
 .body {
     @media (max-width: 1200px) {
         display: none;

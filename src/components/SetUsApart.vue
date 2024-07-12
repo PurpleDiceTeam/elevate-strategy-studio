@@ -207,7 +207,7 @@ export default {
 .setusapart-container {
     display: flex;
     justify-content: center;
-    background-image: url("@/assets/backgrounds/Parte 3.png");
+    //background-image: url("@/assets/backgrounds/Parte 3.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -265,6 +265,11 @@ export default {
                     text-align: left;
                 }
             }
+        }
+
+        img {
+            width: 50%;
+            height: auto;
         }
     }
 

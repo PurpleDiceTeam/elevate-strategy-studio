@@ -22,35 +22,14 @@ export default {
             subtitle_right: "",
         };
     },
-    methods: {
-        async getPosts() {
-            console.log("API URL:", process.env.VUE_APP_HERO);
-            this.isLoading = false;
-            try {
-                const response = await axios.get(process.env.VUE_APP_HERO);
-                this.title_left = response.data.acf.title_left;
-                this.title_right = response.data.acf.title_right;
-                this.subtitle_left = response.data.acf.subtitle_left;
-                this.subtitle_dark = response.data.acf.subtitle_dark;
-                this.subtitle_right = response.data.acf.subtitle_right;
-            } catch (error) {
-                console.error("Error fetching posts:", error);
-            } finally {
-                this.isLoading = false;
-            }
-        },
-    },
-    mounted() {
-        this.getPosts();
-    },
 };
 </script>
 
 <template>
     <div class="hero-container">
         <NavBar class="navbar-hero" />
-        <div class="hero-top" v-if="!this.isLoading">
-            <h1 class="top-left">{{ this.title_left }}</h1>
+        <div class="hero-top">
+            <h1 class="top-left">Elevate</h1>
             <svg
                 width="7"
                 height="98"
@@ -65,13 +44,13 @@ export default {
                     stroke-linecap="round"
                 />
             </svg>
-            <h1 class="top-right">{{ this.title_right }}</h1>
+            <h1 class="top-right">YOUR VISION</h1>
         </div>
 
-        <div class="hero-bottom" v-if="!this.isLoading">
+        <div class="hero-bottom" >
             <h2>
-                {{ this.subtitle_left }} <span>{{ this.subtitle_dark }} </span>
-                {{ this.subtitle_right }}
+                Where <span>Strategy and Design </span>
+                Converge
             </h2>
 
             <svg
@@ -90,7 +69,7 @@ export default {
             </svg>
         </div>
 
-        <div class="hero-button" v-if="!this.isLoading">
+        <div class="hero-button">
             <a href="#contact">
                 <ButtonContact
                     :style="styleButton"
@@ -108,6 +87,8 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+    z-index: 4;
 
     .hero-top {
         margin-top: 115px;
