@@ -98,9 +98,9 @@ export default {
                                     alt="project-image"
                                 />
                                 <h3>Subtitle</h3>
-                                <p>
-                                    {{ project.acf.description }}
-                                </p>
+
+                                <div v-html="project.content.rendered"></div>
+
 
                                 <div class="portfolio-button">
                                     <a href="#contact">
@@ -131,7 +131,7 @@ export default {
 .portfolio-container {
     display: flex;
     justify-content: center;
-    background-image: url("@/assets/portfolio-bg.png");
+/*     background-image: url("@/assets/portfolio-bg.png"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

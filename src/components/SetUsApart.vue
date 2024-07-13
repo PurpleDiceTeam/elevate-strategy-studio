@@ -268,8 +268,11 @@ export default {
         }
 
         img {
-            width: 50%;
+            aspect-ratio: 3/4; 
+            width: 100%;
             height: auto;
+            max-height: 850px;
+            max-width: 720px;
         }
     }
 

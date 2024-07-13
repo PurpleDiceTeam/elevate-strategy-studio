@@ -15,14 +15,16 @@ export default {
         return {
             testimonials: [],
             isLoading: true,
-            testimonialsPerSlide: 4 // Define the number of testimonials per slide
+            testimonialsPerSlide: 4, // Define the number of testimonials per slide
         };
     },
     methods: {
         async getTestimonials() {
             this.isLoading = true; // Set isLoading to true when fetching data
             try {
-                const response = await axios.get(process.env.VUE_APP_TESTIMONIALS);
+                const response = await axios.get(
+                    process.env.VUE_APP_TESTIMONIALS
+                );
                 this.testimonials = response.data;
                 console.log(this.testimonials);
             } catch (error) {
@@ -43,7 +45,10 @@ export default {
     computed: {
         testimonialsChunks() {
             // Compute the chunks of testimonials
-            return this.chunkTestimonials(this.testimonials, this.testimonialsPerSlide);
+            return this.chunkTestimonials(
+                this.testimonials,
+                this.testimonialsPerSlide
+            );
         },
     },
     mounted() {
@@ -72,20 +77,23 @@ export default {
                     :modules="modules"
                     class="mySwiper"
                 >
-                    <swiper-slide v-for="(chunk, index) in testimonialsChunks" :key="index">
+                    <swiper-slide
+                        v-for="(chunk, index) in testimonialsChunks"
+                        :key="index"
+                    >
                         <div class="testimonials-cards">
                             <div
                                 :class="{
                                     'testimonial-card-small':
-                                        testimonial.acf.testimonial.length <
+                                        testimonial.content.rendered.length <
                                         100,
                                     'testimonial-card-medium':
-                                        testimonial.acf.testimonial.length >=
+                                        testimonial.content.rendered.length >=
                                             100 &&
-                                        testimonial.acf.testimonial.length <
+                                        testimonial.content.rendered.length <
                                             150,
                                     'testimonial-card-large':
-                                        testimonial.acf.testimonial.length >=
+                                        testimonial.content.rendered.length >=
                                         150,
                                 }"
                                 v-for="testimonial in chunk"
@@ -107,32 +115,34 @@ export default {
                                         </div>
                                     </div>
 
-                                    <div class="testimonial-text">
-                                        <p>
-                                            {{ testimonial.acf.testimonial }}
-                                        </p>
-                                    </div>
+                                    <div
+                                        class="testimonial-text"
+                                        v-html="testimonial.content.rendered"
+                                    ></div>
                                 </div>
 
                                 <div
                                     class="stylebox-middle"
                                     v-if="
-                                        testimonial.acf.testimonial.length < 100
+                                        testimonial.content.rendered.length <
+                                        100
                                     "
                                 ></div>
                                 <div
                                     class="stylebox-right"
                                     v-if="
-                                        testimonial.acf.testimonial.length < 100
+                                        testimonial.content.rendered.length <
+                                        100
                                     "
                                 ></div>
 
                                 <div
                                     class="stylebox"
                                     v-if="
-                                        testimonial.acf.testimonial.length >
+                                        testimonial.content.rendered.length >
                                             100 &&
-                                        testimonial.acf.testimonial.length < 150
+                                        testimonial.content.rendered.length <
+                                            150
                                     "
                                 >
                                     <div class="stylebox-top"></div>
@@ -141,9 +151,7 @@ export default {
                             </div>
                         </div>
                     </swiper-slide>
-                    <div class="testimonial-mobile">
-                        
-                    </div>
+                    <div class="testimonial-mobile"></div>
                 </swiper>
             </div>
         </div>
@@ -154,11 +162,10 @@ export default {
 .testimonials-container {
     display: flex;
     justify-content: center;
-    background-image: url("@/assets/testimonial-bg.png");
+/*     background-image: url("@/assets/testimonial-bg.png"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 
     .testimonials-content {
         padding: 120px 5%;

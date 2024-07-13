@@ -40,7 +40,7 @@ export default {
 <style lang="scss">
 .special-bg {
     background-image: url("@/assets/complete-bg.png");
-    background-color: transparent;
+    background-color: red;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
