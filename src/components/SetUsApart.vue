@@ -208,6 +208,7 @@ export default {
     display: flex;
     justify-content: center;
     //background-image: url("@/assets/backgrounds/Parte 3.png");
+/*     background-color: #EDEDED; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

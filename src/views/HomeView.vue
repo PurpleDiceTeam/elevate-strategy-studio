@@ -1,4 +1,5 @@
 <script>
+import NavBar from "@/components/NavBar.vue";
 import Hero from "@/components/Hero.vue";
 import Footer from "@/components/Footer.vue";
 import TimesUp from "@/components/TimesUp.vue";
@@ -10,6 +11,7 @@ import ContactUs from "@/components/ContactUs.vue";
 
 export default {
     components: {
+        NavBar,
         Hero,
         TimesUp,
         OurOffer,
@@ -23,7 +25,11 @@ export default {
 </script>
 
 <template>
-    <Hero />
+    <div class="home-hero-container">
+        <NavBar />
+        <Hero />
+    </div>
+
     <div class="special-bg">
         <TimesUp />
         <OurOffer />
@@ -38,15 +44,21 @@ export default {
 </template>
 
 <style lang="scss">
-.special-bg {
-    background-image: url("@/assets/complete-bg.png");
-    background-color: red;
+.home-hero-container {
+    background-image: url("@/assets/Background.webp");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    margin-top: -100px;
+    background-size: cover;
+}
+
+.special-bg {
+    margin-top: -170px;
+    background-image: url("@/assets/complete-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
-    z-index: 5;
+    z-index: 7;
 }
 
 .body {

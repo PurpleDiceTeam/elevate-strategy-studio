@@ -346,6 +346,7 @@ export default {
 <style lang="scss">
 .ouroffer-container {
     //background-image: url("@/assets/backgrounds/Parte 2.png");
+/*     background-color: #1D1D1C; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;

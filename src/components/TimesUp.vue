@@ -60,9 +60,8 @@ export default {};
 
 <style lang="scss">
 .timesup-container {
-/*     margin-top: -130px; */
+    position: relative;
     display: flex;
-    //background-image: url("@/assets/backgrounds/Parte 1.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -72,14 +71,14 @@ export default {};
     padding-bottom: 120px;
 
     .timesup-logo-container {
+        padding-top: 50px;
         display: flex;
         justify-content: center;
-        margin-top: 50px;
     }
 
     .timesup-content {
         border-radius: 0px 0px 150px 150px;
-        padding: 100px 5%;
+        padding: 100px 5% 100px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -127,7 +126,7 @@ export default {};
 
     @media (max-width: 1200px) {
         background-size: cover;
-        .timesup-content{
+        .timesup-content {
             padding: 0;
             width: 100%;
             flex-direction: column;
@@ -144,7 +143,6 @@ export default {};
                 max-width: 80%;
             }
         }
-
     }
 }
 </style>

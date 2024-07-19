@@ -163,6 +163,7 @@ export default {
     display: flex;
     justify-content: center;
 /*     background-image: url("@/assets/testimonial-bg.png"); */
+    background-color: #1D1D1C;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

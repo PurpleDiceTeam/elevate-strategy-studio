@@ -27,7 +27,6 @@ export default {
 
 <template>
     <div class="hero-container">
-        <NavBar class="navbar-hero" />
         <div class="hero-top">
             <h1 class="top-left">Elevate</h1>
             <svg
@@ -47,7 +46,7 @@ export default {
             <h1 class="top-right">YOUR VISION</h1>
         </div>
 
-        <div class="hero-bottom" >
+        <div class="hero-bottom">
             <h2>
                 Where <span>Strategy and Design </span>
                 Converge
@@ -82,16 +81,16 @@ export default {
 
 <style lang="scss">
 .hero-container {
-    height: 100vh;
-    background-image: url("@/assets/Background.webp");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 90vh;
     position: relative;
     z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; // Ensure items start from the top
+    align-items: stretch; // Ensure child elements stretch to the container's width
 
     .hero-top {
-        margin-top: 115px;
+        padding: 50px 0;
         display: flex;
         justify-content: center;
         gap: 31px;
@@ -142,24 +141,18 @@ export default {
     }
 
     .hero-button {
-        padding-top: 20px;
-        background-image: url("@/assets/hands.webp");
-        background-position: center;
+        padding: 20px 0;
+        margin: 0 auto;
+        padding: 50px 0;
+        background-image: url("@/assets/Hands.png");
+        background-position: center -50px;
         background-repeat: no-repeat;
-        background-size: 100% 100%;
-        height: 45vh;
+        background-size: cover; 
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: flex-start;
-    }
-
-    @media(max-width: 1200px) {
-        .hero-top,
-        .hero-bottom,
-        .hero-button {
-            display: none;
-        }
+        flex-grow: 1; 
     }
 }
 </style>

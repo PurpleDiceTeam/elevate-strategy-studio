@@ -132,6 +132,7 @@ export default {
     display: flex;
     justify-content: center;
 /*     background-image: url("@/assets/portfolio-bg.png"); */
+    background-color: #EDEDED;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -190,7 +191,7 @@ export default {
                 gap: 24px;
 
                 img {
-                    width: 312px;
+                    width: 45%;
                     height: auto;
                 }
             }
